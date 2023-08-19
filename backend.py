@@ -1,6 +1,4 @@
-import numpy as np
 import pandas as pd
-import nltk
 import ast
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
@@ -62,7 +60,6 @@ def stem(text):
     return " ".join(y)
 
 
-
 movies['genres'] = movies['genres'].apply(convert)  # will store all genres of every movie in a list
 movies['keywords'] = movies['keywords'].apply(convert)  # will store all keywords of every movie in a list
 movies['cast'] = movies['cast'].apply(top_3_Cast)  # will store only top 3 actors of every movie in a list
@@ -95,7 +92,7 @@ similarity = cosine_similarity(vectors)
 def recommend(movie):
     movie_index = new_df[new_df['title'] == movie].index[0]
     distances = similarity[movie_index]
-    movies_list = sorted(list(enumerate(distances)),reverse=True, key=lambda x: x[1])[1:6]
+    movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:6]
     for i in movies_list:
         print(new_df.iloc[i[0]].title)
 
