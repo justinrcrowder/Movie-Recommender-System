@@ -1,6 +1,6 @@
-streamlit
-pandas
-numpy
-nltk
-requests
-scikit-learn
+pandas~=1.5.3
+numpy~=1.25.2
+nltk~=3.8.1
+requests~=2.31.0
+scikit-learn~=1.2.2
+flask~=2.2.2
